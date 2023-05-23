@@ -536,7 +536,8 @@ if __name__ == '__main__':
         for file in files:
             cnt = 0
             pic_path = os.path.join(parent, file)
-            xml_path = os.path.join(source_xml_path, file[:-4] + '.xml')
+            #jackzhao更改了代码，由'.xml'改成了'xml'运行时报的错误，我做修改后可以运行
+            xml_path = os.path.join(source_xml_path, file[:-4] + 'xml')
             values = toolhelper.parse_xml(xml_path)  # 解析得到box信息，格式为[[x_min,y_min,x_max,y_max,name]]
             coords = [v[:4] for v in values]  # 得到框
             labels = [v[-1] for v in values]  # 对象的标签
